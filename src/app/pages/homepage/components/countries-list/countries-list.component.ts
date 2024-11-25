@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CountryService } from '../../../../shared/services/country.service';
 import { Country } from '../../../../shared/domain/country';
 
@@ -9,13 +9,14 @@ import { Country } from '../../../../shared/domain/country';
   templateUrl: './countries-list.component.html',
   styleUrl: './countries-list.component.scss'
 })
-export class CountriesListComponent {
+export class CountriesListComponent implements OnInit {
 
   constructor(private countryService: CountryService) {
     // asychronous -> 
     countryService.getCountries().subscribe((countriesArray: Country[]) => {
       countriesArray
       console.log(countriesArray[0].region);
+      console.log(countriesArray[0].name.common);
     });
   
     // countryService.getCountries().subscribe({
@@ -30,6 +31,10 @@ export class CountriesListComponent {
     console.log("hello");
     
     //...
+  }
+
+  ngOnInit(): void {
+    console.log("on init");
   }
 
 }
