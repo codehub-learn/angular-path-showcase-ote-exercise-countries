@@ -1,6 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { CountryService } from '../../../../shared/services/country.service';
 import { Country } from '../../../../shared/domain/country';
+import { PublishService } from '../../../../shared/services/publish.service';
 
 @Component({
   selector: 'app-countries-list',
@@ -10,13 +11,20 @@ import { Country } from '../../../../shared/domain/country';
   styleUrl: './countries-list.component.scss'
 })
 export class CountriesListComponent implements OnInit {
+  countriesArray: Country[] = [];
 
-  constructor(private countryService: CountryService) {
+  constructor(private countryService: CountryService, private publishService: PublishService) {
     // asychronous -> 
     countryService.getCountries().subscribe((countriesArray: Country[]) => {
-      countriesArray
       console.log(countriesArray[0].region);
       console.log(countriesArray[0].name.common);
+      this.countriesArray = countriesArray;
+      // countriesArray.forEach((country: Country) => {
+      //   console.log(country.name.common);
+      // });
+      // for (let country of countriesArray){
+      //   console.log(country.region);
+      // }
     });
   
     // countryService.getCountries().subscribe({
@@ -35,6 +43,10 @@ export class CountriesListComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("on init");
+  }
+
+  publishCountry(country: Country) {
+    this.publishService.publishData(country);
   }
 
 }

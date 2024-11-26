@@ -1,3 +1,9 @@
-<p>countries-list works!</p>
-
-<div id="arkouda">....</div>
+<h3>Country List</h3>
+<hr>
+<ul>
+    @for (country of countriesArray; track $index) {
+    <li>
+        <span (click)="publishCountry(country)">{{country.name.common}}</span>
+    </li>
+    }
+</ul>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CountriesListComponent } from "./components/countries-list/countries-list.component";
 import { CountryDetailsComponent } from "./components/country-details/country-details.component";
+import { Country } from '../../shared/domain/country';
 
 @Component({
   selector: 'app-homepage',
@@ -10,5 +11,4 @@ import { CountryDetailsComponent } from "./components/country-details/country-de
   styleUrl: './homepage.component.scss'
 })
 export class HomepageComponent {
-
 }
