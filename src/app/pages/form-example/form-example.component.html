@@ -7,17 +7,33 @@
         <div>
             E9
             <input formControlName="e9" type="text">
+            @if(propertyForm.get("e9")?.hasError("required")) {
+                Required
+            }
         </div>
         <div>
             Address
             <input formControlName="address" type="text">
+            @if(propertyForm.get("address")?.hasError("required") 
+            && propertyForm.get("address")?.touched) {
+                Required
+            }
         </div>
         <div>
             Year of construction
             <input formControlName="yearOfConstruction" type="number">
+            @if(propertyForm.get("yearOfConstruction")?.hasError("required") 
+            && propertyForm.get("yearOfConstruction")?.dirty) {
+                Required
+            }
+            @if((propertyForm.get("yearOfConstruction")?.hasError("min") || 
+            propertyForm.get("yearOfConstruction")?.hasError("max"))
+            && propertyForm.get("yearOfConstruction")?.dirty) {
+                Please input a correct range
+            }
         </div>
         <div>
-            <button type="submit">Submit</button>
+            <button type="submit" [disabled]="propertyForm.invalid">Submit</button>
         </div>
     </form>
 </div>
