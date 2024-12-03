@@ -1,0 +1,23 @@
+<div class="form-container">
+    <form [formGroup]="propertyForm" (submit)="onSubmit()">
+        <!-- <div>
+            ID
+            <input formControlName="id" type="text" readonly>
+        </div> -->
+        <div>
+            E9
+            <input formControlName="e9" type="text">
+        </div>
+        <div>
+            Address
+            <input formControlName="address" type="text">
+        </div>
+        <div>
+            Year of construction
+            <input formControlName="yearOfConstruction" type="number">
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>

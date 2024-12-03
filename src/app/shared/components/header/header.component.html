@@ -1,3 +1,15 @@
-<p>header works!</p>
-<img class="button-icon" src="assets/images/pencil_icon.jpg" alt="Pencil Icon">
+<div class="nav-bar">
+    <div> 
+        <!-- <a [routerLink]="['']">Home</a> -->
+         <button (click)="navigateToPath('home')">Home</button>
+    </div>
+    <div>
+        <button (click)="navigateToPath('about-us')">About us</button>
+        <!-- <a [routerLink]="['about-us']">About us</a> -->
+    </div>
+    <div>
+        <button (click)="navigateToPath('form-example')">Form example</button>
+    </div>
+</div>
+<!-- <img class="button-icon" src="assets/images/pencil_icon.jpg" alt="Pencil Icon"> -->
 
